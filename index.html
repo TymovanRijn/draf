@@ -7,8 +7,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Draf">
-<meta name="theme-color" content="#f6f4f1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e0d12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#faf5ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#27263b" media="(prefers-color-scheme: dark)">
 <meta name="robots" content="noindex, nofollow">
 <meta name="format-detection" content="telephone=no">
 <link rel="manifest" href="manifest.json">
@@ -181,13 +181,68 @@ h1{font-size:36px;font-weight:800;letter-spacing:-.035em;margin:14px 0 2px;line-
 .sleep .zz{animation:zz 2.4s ease-in-out infinite}
 @keyframes zz{0%{opacity:0;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition:none!important}}
+
+/* Calm surfaces and a responsive dashboard. */
+:root{
+  color-scheme:light;--bg:#f7f3ed;--card:#fffcf8;--card-2:#eee9e2;--text:#343147;--text-2:#726e7b;--text-3:#7b7580;
+  --line:#e8e2db;--shadow:0 4px 24px #44334b05;--accent:#625675;--accent-2:#827196;--grad:linear-gradient(120deg,#655a7b,#48435e);
+  --easy:#639b98;--long:#9383aa;--quality:#c78073;--test:#b6798b;--race:#b6798b;--bike:#8c9f7d;--strength:#9986aa;--rest:#a39caa;--ok:#4e8275;
+  --z1:#c1d8cf;--z2:#83b1a6;--mp:#d6be89;--z4:#d6a088;--z5:#c77e84;--s:#a08eb5;--r:24px;--pad:24px
+}
+html,body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;letter-spacing:-.02em}
+body{max-width:1180px;padding-top:24px;padding-bottom:120px}
+#upload{display:none}.awaiting #upload{min-height:85vh;min-height:90svh;display:grid;place-items:center}
+.awaiting .screen,.awaiting .tabbar{display:none}
+#upload button{background:none;border:0;text-decoration:underline;text-underline-offset:5px;padding:16px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+h1{font-weight:650;font-size:36px;letter-spacing:-.04em;margin:16px 0 12px;line-height:1.15}
+.head{height:48px;margin-bottom:32px}.brand{font-size:23px;font-weight:700;letter-spacing:-.06em}.brand i{background:var(--text);border-radius:50%;width:36px;height:36px}
+.icon-btn{border:1px solid var(--line);box-shadow:none;background:transparent}
+.date-line{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-2);margin-top:12px}
+.sub{font-size:14px;line-height:1.6;margin-bottom:28px;max-width:680px}
+.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:start}
+.dashboard-grid>*{min-width:0}.section-head{display:flex;justify-content:space-between;align-items:center;margin:0 0 14px;gap:12px}
+.section-head h2{font-size:17px;font-weight:600;margin:0;letter-spacing:-.03em}.text-btn{border:0;background:none;font-size:12px;font-weight:600;color:var(--text-2);padding:8px 0}
+.strip{gap:4px;padding:8px;background:var(--card);border-radius:22px;border:1px solid var(--line);margin:0 0 24px;box-shadow:none}
+.dayp{box-shadow:none;background:transparent;border-radius:15px;padding:11px 0;gap:7px;min-width:0}.dayp .n{font-size:17px;font-weight:600}.dayp .w{font-weight:500;color:var(--text-2);font-size:10px}.dayp.today{background:var(--text);color:#fff7ee}.dayp.today .w{color:inherit}.dayp .m{height:6px}.dayp .dot{width:5px;height:5px}
+.card,.list{border:1px solid var(--line);box-shadow:none}.card{padding:24px}.label{font-size:11px;font-weight:600;margin:28px 0 12px;letter-spacing:.12em}
+.hero,.hero.rest{background:#58516f;box-shadow:none;isolation:isolate;padding:30px;min-height:340px;border-radius:25px;color:#fff9f2;cursor:default;display:flex;flex-direction:column;align-items:flex-start;position:relative;margin:0 0 14px}
+.hero .k{font-size:11px;letter-spacing:.08em;font-weight:500;background:#ffffff16;padding:7px 11px;border-radius:30px;opacity:1}
+.hero h2{font-weight:600;font-size:30px;line-height:1.12;max-width:83%;margin:22px 0 16px;letter-spacing:-.04em}
+.hero .meta{font-size:11px;gap:24px;max-width:75%;font-weight:400}.hero .meta b{font-size:23px;font-weight:500;margin-bottom:2px}
+.hero .bars{max-width:62%;width:210px;height:34px;margin:22px 0 0;opacity:.7}
+.hero .go{position:relative;border:0;margin-top:26px;background:#f7efe4;color:#433d57;backdrop-filter:none;border-radius:13px;padding:13px 18px;font-size:13px;font-weight:600;display:inline-flex;gap:24px}
+.hero .shine{display:none}.hero.rest{background:#e8e3ec;color:#454157;min-height:340px}.hero.rest .k{background:#ffffff70}.rest-copy{max-width:62%;font-size:14px;line-height:1.6;color:#645f73;margin:0}
+.landscape{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none;border-radius:inherit}.landscape .sun{position:absolute;width:59px;height:59px;border-radius:50%;background:#f1cbb4;right:11%;top:31px;box-shadow:0 0 60px #f9d8b91a}
+.landscape .ridge{position:absolute;width:85%;height:65%;right:-45%;bottom:-16%;border-radius:45% 55% 0 0;transform:rotate(-24deg);background:#77738b}
+.landscape .ridge.near{background:#9cb6ad;right:-38%;bottom:-39%;height:78%;transform:rotate(-35deg)}
+.landscape .trail{position:absolute;right:5%;bottom:-70px;width:100px;height:260px;border:18px solid #ded4ba;border-left:0;border-top:0;border-radius:0 0 90% 0;transform:rotate(25deg);opacity:.85}
+.landscape .stem{position:absolute;right:16%;bottom:35px;width:3px;height:80px;background:#46465c;transform:rotate(12deg);border-radius:100%}.landscape .stem:before,.landscape .stem:after{content:'';position:absolute;width:17px;height:32px;border-radius:90% 0 90% 0;background:#46465c;left:0;top:3px;transform:rotate(-20deg)}.landscape .stem:after{left:-17px;top:25px;transform:scaleX(-1)}.landscape .stem.second{right:9%;bottom:18px;transform:rotate(-15deg) scale(.7)}
+.week-card{background:#e8eee7;border:0;padding:24px}.week-card .ringw{gap:16px;margin:16px 0 22px}.week-card .ring{width:76px;height:76px}.week-card .ring .v{font-size:17px}.week-card .big{font-size:24px}.week-card .big small{display:block;font-size:12px;margin:7px 0 0;font-weight:400;line-height:1.5}.week-card .ring-track{stroke:#d2dfd2}.week-card .ring-fill{stroke:#648b78}
+.week-totals{display:flex;border-top:1px solid #ccd7cb;padding-top:18px;gap:26px}.week-totals b{font-size:21px;font-weight:500;display:block}.week-totals span{font-size:11px;color:#5f6d61;line-height:1.6}.phase-name{font-size:12px;color:#596b5b;margin:5px 0 0}
+.race-card{background:#ede6ed;border:0}.race-card .race-count{font-weight:600;font-size:34px;line-height:1;margin:20px 0 8px}.race-card .race-count small{font-family:inherit;font-size:17px}.race-card p{font-size:12px;color:var(--text-2);margin:0;line-height:1.6}.race-card .section-head{margin:0}.race-card .text-btn{color:#60516d}
+.next-section{margin-top:28px}.next-section .row{padding:18px 16px}.row{gap:12px;padding:17px 18px}.row .ic{width:40px;height:42px;border-radius:13px;background:color-mix(in srgb,var(--c) 16%,var(--card));color:var(--c)}.row .ic svg{stroke:currentColor}.row .t b{font-size:14px;font-weight:500}.row .t span{font-size:12px;line-height:1.5}.row .r{font-size:12px;font-weight:500}.row+.row:before{left:70px;right:18px}.row:hover{background:var(--card-2)}
+.tabbar{max-width:470px;border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 40px #3f304b12;padding:7px;background:color-mix(in srgb,var(--card) 94%,transparent)}.tabbar button{font-size:10px;font-weight:500;gap:5px;border-radius:16px;padding:10px 0}.tabbar button.on{background:#ece6ef;color:#574866}.tabbar svg{width:20px;height:20px;stroke-width:1.6}
+.wk{margin-bottom:28px}.wk-h{gap:12px;flex-wrap:wrap;margin:0 2px 12px}.wk-h b{font-size:16px;font-weight:500}.wk-h .muted{font-size:12px}.wk.cur .list{outline:1px solid #a599b2}.more{padding:16px;font-weight:500;font-size:13px}.btn,.pill{font-size:14px;font-weight:500}.shero{background:#58516f!important}.sheet .step .l{font-size:11px}.sheet{border:1px solid var(--line)}.sheet h2{font-weight:600;font-size:27px}.sheet h3{font-weight:600;font-size:16px}.sheet .in>.btn{margin-top:20px}
+#paint{display:none;position:fixed;z-index:100;inset:0;overflow:hidden;touch-action:none}
+#paint.active{display:block}#paint canvas{display:block;width:100%;height:100%}.painting{overflow:hidden}
+.paint-brush{position:absolute;width:100px;height:180px;left:0;top:0;transform-origin:50% 90%;filter:drop-shadow(4px 8px 6px #312e4233);will-change:transform}
+.paint-brush .handle{position:absolute;left:38px;top:0;width:24px;height:110px;background:linear-gradient(90deg,#b38158,#deb98a 45%,#ba8b60);border-radius:50% 50% 15% 15%;transform:rotate(8deg);transform-origin:bottom}.paint-brush .handle:after{content:'';position:absolute;top:10px;left:8px;width:6px;height:9px;border-radius:50%;background:#71573f}
+.paint-brush .ferrule{position:absolute;left:8px;top:96px;width:84px;height:37px;border-radius:6px 6px 1px 1px;background:linear-gradient(90deg,#9e927b,#e3d9c4 32%,#c5baa1 70%,#a5987e);border-block:2px solid #b0a38c}
+.paint-brush .bristles{position:absolute;left:8px;top:132px;width:84px;height:46px;background:repeating-linear-gradient(90deg,#c4c4b6 0 1px,#e8d9c5 2px 3px,#c6b8a4 4px 5px);clip-path:polygon(0 0,100% 0,98% 90%,94% 95%,90% 90%,85% 99%,79% 92%,73% 100%,68% 94%,61% 100%,55% 94%,48% 100%,41% 96%,34% 100%,28% 92%,21% 99%,15% 93%,8% 96%,2% 90%)}
+@media(min-width:1000px){body{padding-left:210px;padding-right:36px;padding-bottom:50px}.tabbar{inset:0 auto 0 0;transform:none;width:180px;max-width:none;border:0;border-right:1px solid var(--line);border-radius:0;box-shadow:none;flex-direction:column;justify-content:center;padding:22px 14px;background:var(--card);gap:8px}.tabbar button{flex:0;flex-direction:row;padding:15px;gap:12px;font-size:12px;min-height:50px}.head{margin-bottom:38px}.screen{max-width:920px;margin:auto}.sheet{max-width:620px}}
+@media(max-width:640px){body{--pad:20px;padding-top:14px}.head{margin-bottom:22px}h1{font-size:30px}.dashboard-grid{grid-template-columns:1fr;gap:24px}.hero{min-height:350px}.hero h2{font-size:28px}.dashboard-side{display:grid;grid-template-columns:1fr}.sub{margin-bottom:24px}.week-card{margin-bottom:0}.race-card{margin-top:18px;margin-bottom:0}.next-section{margin-top:24px}.card{padding:22px}.row .t b{white-space:normal}.row .t span{white-space:normal}.row .r{max-width:65px}.hero h2{max-width:90%}}
+@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#252535;--card:#303040;--card-2:#3b394d;--text:#f6efe6;--text-2:#bbb3c3;--text-3:#b0a7b7;--line:#454152;--accent:#c0accf}.week-card{background:#35463e}.phase-name,.week-totals span{color:#c1d1c1}.week-totals{border-color:#526355}.week-card .ring-track{stroke:#50665a}.week-card .ring-fill{stroke:#b0c9b0}.race-card{background:#443c4e}.race-card .text-btn{color:#d4bedf}.tabbar button.on{background:#484056;color:#f4e6fc}.hero.rest{background:#484154;color:#f9f0e8}.rest-copy{color:#d8cddf}}
 </style>
 </head>
-<body>
+<body class="awaiting">
+<main id="upload"><button data-act="import"> uploadd plssss je json!!! </button></main>
+<div id="paint" aria-hidden="true"><canvas></canvas><div class="paint-brush"><i class="handle"></i><i class="ferrule"></i><i class="bristles"></i></div></div>
 
 <section class="screen on" id="s-today">
   <div class="head"><button class="brand" id="brand"><i id="brand-ic"></i>Draf</button><button class="icon-btn" id="sync-top" aria-label="Synchroniseren"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-14 5.300M4 12a8 8 0 0 1 14-5.300M18 3v4h-4M6 21v-4h4"/></svg></button></div>
-  <h1 id="t-date"></h1>
+  <div class="date-line" id="t-date"></div>
+  <h1 id="dashboard-title" tabindex="-1">Vandaag</h1>
   <div class="sub" id="t-sub"></div>
   <div id="t-body"></div>
 </section>
@@ -222,7 +277,7 @@ h1{font-size:36px;font-weight:800;letter-spacing:-.035em;margin:14px 0 2px;line-
 
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheet"><div class="grab"><i></i></div><div id="sheet-body"></div></div>
-<div class="toast" id="toast"></div>
+<div class="toast" role="status" id="toast"></div>
 <input type="file" id="file" accept="application/json,.json" hidden>
 
 <script>
@@ -301,40 +356,46 @@ const actsOn=(d,sport)=>st.acts.filter(a=>a.day===dkey(d)&&(!sport||a.kind===spo
 function isDone(d,idx,x){if(st.done[doneKey(d,idx)])return true;return(x.sport==='run'||x.sport==='bike')&&actsOn(d,x.sport).length>0}
 
 /* ---------- vandaag ---------- */
-function renderToday(){const now=new Date(),t=$('#t-body');
-  $('#t-date').textContent=fmtD(now,{weekday:'long',day:'numeric',month:'long'}).replace(/^./,c=>c.toUpperCase());
-  const p=st.plan;
-  if(!p){$('#t-sub').textContent='';t.innerHTML=`<div class="card empty">${donkey({cls:'donk'})}<div style="font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px">Nog geen schema</div><div>Importeer een schemabestand of bekijk eerst het voorbeeld.</div><button class="btn pri" data-act="import">Schema importeren</button><button class="btn" data-act="demo">Voorbeeldschema bekijken</button></div>`;return}
-  const race=p.race&&p.race.date?Math.ceil((pd(p.race.date)-today0())/DAY):null,wi=weekIndex(),N=p.weeks.length;
-  $('#t-sub').innerHTML=`<span id="countdown">${race!=null&&race>=0?(race===0?'Vandaag is de dag':`Nog ${race} ${race===1?'dag':'dagen'} tot ${esc(p.race.name||'de wedstrijd')}`):esc(p.name||'')}</span>${wi>=0&&wi<N?` · week ${wi+1} van ${N}`:''}${p.demo?' · voorbeeld':''}`;
-  // weekstrip
-  const mon=addD(today0(),-((now.getDay()+6)%7));let strip='<div class="strip">';
-  for(let i=0;i<7;i++){const d=addD(mon,i),l=locate(d),items=l?l.items:[],m=items.length?mainItem(items):null,tr=m&&isTraining(m);
-    const done=tr&&items.some((x,idx)=>isTraining(x)&&isDone(d,idx,x));
-    strip+=`<button class="dayp ${dkey(d)===dkey(now)?'today':''}" ${l&&tr?`data-open="${l.wi},${l.dow},${items.indexOf(m)}"`:''}><span class="w">${DOWS[i]}</span><span class="n">${d.getDate()}</span><span class="m">${done?'<span class="tick">✓</span>':tr?`<span class="dot" style="--c:${kc(m)}"></span>`:''}</span></button>`}
+function landscape(){return '<div class="landscape" aria-hidden="true"><i class="sun"></i><i class="ridge"></i><i class="ridge near"></i><i class="trail"></i><i class="stem"></i><i class="stem second"></i></div>'}
+function renderToday(){
+  const now=new Date(),p=st.plan,t=$('#t-body');
+  if(!p)return;
+  $('#t-date').textContent=fmtD(now,{weekday:'long',day:'numeric',month:'long'});
+  const wi=weekIndex(),N=p.weeks.length;
+  $('#t-sub').textContent=(p.name||'Jouw trainingsschema')+(wi>=0&&wi<N?` · Week ${wi+1} van ${N}`:'')+(p.demo?' · Voorbeeld':'');
+  const mon=addD(today0(),-((now.getDay()+6)%7));
+  let strip='<div class="strip" aria-label="Trainingen deze week">';
+  for(let i=0;i<7;i++){
+    const d=addD(mon,i),l=locate(d),items=l?l.items:[],m=mainItem(items),tr=isTraining(m);
+    const done=tr&&items.filter(isTraining).every(x=>isDone(d,items.indexOf(x),x));
+    strip+=`<button class="dayp ${dkey(d)===dkey(now)?'today':''}" ${dkey(d)===dkey(now)?'aria-current="date"':''} aria-label="${esc(fmtD(d,{weekday:'long',day:'numeric',month:'long'}))}${m?' · '+esc(m.title):''}" ${l&&m?`data-open="${l.wi},${l.dow},${items.indexOf(m)}"`:'disabled'}><span class="w">${DOWS[i]}</span><span class="n">${d.getDate()}</span><span class="m">${done?'<span class="tick">✓</span>':tr?`<span class="dot" style="--c:${kc(m)}"></span>`:''}</span></button>`;
+  }
   strip+='</div>';
   const l=locate(now);let hero='';
-  if(!l){hero=`<div class="card empty">${donkey({cls:'donk'})}<div>${wi<0?`Je schema begint ${fmtD(p.weeks[0].start,{weekday:'long',day:'numeric',month:'long'})}.`:'Je schema is afgelopen.'}</div></div>`}
-  else{const items=l.items,trains=items.filter(isTraining);
-    if(!trains.length){hero=`<div class="hero rest"><div class="shine"></div><div class="k">Rustdag</div><h2>Rust</h2><div class="meta">${esc((items[0]&&items[0].short)||'Herstel hoort bij de training')}</div><div style="height:70px"></div>${donkey({cls:'donk sleep',sleep:true})}</div>`}
-    else{const x=mainItem(trains),idx=items.indexOf(x),k=kindOf(x),done=isDone(now,idx,x);
-      hero=`<div class="hero" data-open="${l.wi},${l.dow},${idx}" style="--hg:${HERO[k]}"><div class="shine"></div>
-        <div class="k">${KIND[k][1]}${done?' · gedaan ✓':''}</div><h2>${esc(x.title)}</h2>
-        <div class="meta">${x.km?`<span><b>${nl(x.km)} km</b>afstand</span>`:''}${estMin(x)?`<span><b>${estMin(x)} min</b>${x.min?'duur':'ongeveer'}</span>`:''}</div>
-        ${barsHTML(x,true)}
-        <div class="motto">KOMAAANN IIISS</div>
-        <span class="go">Bekijk training ›</span></div>`;
-      if(trains.length>1)hero+=`<div class="list" style="margin-bottom:14px">${trains.filter(y=>y!==x).map(y=>rowHTML(l,items.indexOf(y),y)).join('')}</div>`}}
-  // deze week
-  let wk='';const cw=wi>=0&&wi<N?p.weeks[wi]:null;
-  if(cw){let plan=0,did=0,n=0,nd=0;cw.days.forEach((items,dow)=>{const d=dateOf(cw,dow);items.forEach((x,idx)=>{if(x.sport==='run'){plan+=x.km||0;n++;if(isDone(d,idx,x))nd++}})});
-    did=st.acts.filter(a=>a.kind==='run'&&a.day>=cw.start&&a.day<=dkey(dateOf(cw,6))).reduce((a,b)=>a+b.km,0);
-    const pr=plan?Math.min(1,did/plan):0,C=2*Math.PI*38;
-    wk=`<div class="label">Deze week</div><div class="card ringw"><div class="ring"><svg viewBox="0 0 86 86"><circle cx="43" cy="43" r="38" stroke="var(--card-2)" stroke-width="9" fill="none"/><circle cx="43" cy="43" r="38" stroke="url(#gr)" stroke-width="9" fill="none" stroke-linecap="round" stroke-dasharray="${(C*Math.max(.02,pr)).toFixed(1)} ${C.toFixed(1)}"/><defs><linearGradient id="gr"><stop offset="0" stop-color="#ff7a2f"/><stop offset="1" stop-color="#ff2d6f"/></linearGradient></defs></svg><div class="v">${Math.round(pr*100)}%</div></div>
-      <div><div class="big">${nl(did.toFixed(1))}<small>van ${nl(Math.round(plan*10)/10)} km</small></div><div class="muted" style="margin-top:6px">${nd} van ${n} loopjes gedaan · ${esc(cw.phase||'')}${cw.light?' · lichte week':''}</div></div></div>`}
-  // volgende training
-  let nx='';for(let i=1;i<=10&&!nx;i++){const d=addD(now,i),ll=locate(d);if(!ll)continue;const tr=ll.items.filter(isTraining);if(tr.length){const y=mainItem(tr);nx=`<div class="label">Hierna</div><div class="list">${rowHTML(ll,ll.items.indexOf(y),y,i===1?'Morgen':fmtD(d,{weekday:'long'}))}</div>`}}
-  t.innerHTML=strip+hero+wk+nx}
+  if(!l){hero=`<div class="hero rest">${landscape()}<div class="k">${wi<0?'Binnenkort van start':'Schema afgerond'}</div><h2>${wi<0?'Een nieuw begin.':'Mooi werk.'}</h2><p class="rest-copy">${wi<0?`Je eerste week begint op ${fmtD(p.weeks[0].start,{day:'numeric',month:'long'})}. Bekijk alvast wat er op de planning staat.`:'Je hebt het einde van je schema bereikt. Bekijk je trainingen in het weekoverzicht.'}</p><button class="go" data-act="plan">Bekijk je schema <span>↗</span></button></div>`}
+  else{
+    const trains=l.items.filter(isTraining);
+    if(!trains.length){hero=`<div class="hero rest">${landscape()}<div class="k">Vandaag · Rustdag</div><h2>Even op adem.</h2><p class="rest-copy">${esc((l.items[0]&&l.items[0].short)||'Vandaag staat er geen training gepland. Geef jezelf de ruimte om te herstellen.')}</p><button class="go" data-act="plan">Bekijk je week <span>↗</span></button></div>`}
+    else{
+      const x=mainItem(trains),idx=l.items.indexOf(x),done=isDone(now,idx,x);
+      hero=`<div class="hero">${landscape()}<div class="k">Vandaag · ${KIND[kindOf(x)][1]}${done?' · Voltooid ✓':''}</div><h2>${esc(x.title)}</h2><div class="meta">${x.km?`<span><b>${nl(x.km)} km</b>afstand</span>`:''}${estMin(x)?`<span><b>${estMin(x)} min</b>${x.min?'duur':'ongeveer'}</span>`:''}</div>${barsHTML(x,true)}<button class="go" data-open="${l.wi},${l.dow},${idx}">Bekijk je training <span>↗</span></button></div>`;
+      if(trains.length>1)hero+=`<div class="list">${trains.filter(y=>y!==x).map(y=>rowHTML(l,l.items.indexOf(y),y,'Ook vandaag')).join('')}</div>`;
+    }
+  }
+  const cw=wi>=0&&wi<N?p.weeks[wi]:null;let week='';
+  if(cw){
+    let total=0,completed=0,km=0;
+    cw.days.forEach((items,dow)=>items.forEach((x,idx)=>{if(isTraining(x)){total++;if(isDone(dateOf(cw,dow),idx,x))completed++}if(x.sport==='run')km+=x.km||0}));
+    const ratio=total?completed/total:0,C=2*Math.PI*38;
+    week=`<div class="card week-card"><div class="section-head"><h2>Deze week</h2><button class="text-btn" data-act="plan">Overzicht ↗</button></div><p class="phase-name">Week ${wi+1}${cw.phase?' · '+esc(cw.phase):''}${cw.light?' · Lichte week':''}</p><div class="ringw"><div class="ring"><svg viewBox="0 0 86 86" aria-hidden="true"><circle class="ring-track" cx="43" cy="43" r="38" stroke-width="7" fill="none"/><circle class="ring-fill" cx="43" cy="43" r="38" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="${C*ratio} ${C}"/></svg><div class="v">${Math.round(ratio*100)}%</div></div><div class="big">${completed} van ${total}<small>trainingen voltooid</small></div></div><div class="week-totals"><div><b>${nl(Math.round(km*10)/10)} km</b><span>lopen gepland</span></div><div><b>${total-completed}</b><span>trainingen open</span></div></div></div>`;
+  }
+  let race='';
+  if(p.race&&p.race.date){const days=Math.ceil((pd(p.race.date)-today0())/DAY);if(days>=0)race=`<div class="card race-card"><div class="section-head"><h2>${esc(p.race.name||'Jouw wedstrijd')}</h2><button class="text-btn" data-info="race">Details ↗</button></div><div class="race-count" id="countdown">${days===0?'Vandaag':days+' <small>dagen te gaan</small>'}</div><p>${fmtD(p.race.date,{day:'numeric',month:'long',year:'numeric'})}</p></div>`}
+  const upcoming=[];
+  for(let i=1;i<=21&&upcoming.length<3;i++){const d=addD(now,i),ll=locate(d);if(!ll)continue;ll.items.filter(isTraining).forEach(x=>{if(upcoming.length<3)upcoming.push(rowHTML(ll,ll.items.indexOf(x),x,i===1?'Morgen':fmtD(d,{weekday:'short',day:'numeric',month:'short'})))})}
+  const next=upcoming.length?`<div class="next-section"><div class="section-head"><h2>Op de planning</h2><button class="text-btn" data-act="plan">Alles bekijken ↗</button></div><div class="list">${upcoming.join('')}</div></div>`:'';
+  t.innerHTML=strip+`<div class="dashboard-grid"><div><div class="section-head"><h2>Training van vandaag</h2></div>${hero}${next}</div><aside class="dashboard-side">${week}${race}</aside></div>`;
+}
 function rowHTML(l,idx,x,when){const d=dateOf(l.w,l.dow),done=isTraining(x)&&isDone(d,idx,x);
   return `<button class="row ${x.sport==='rest'?'off':''}" data-open="${l.wi},${l.dow},${idx}"><span class="ic" style="--c:${kc(x)}"><svg viewBox="0 0 24 24">${ICON[x.sport]||ICON.run}</svg></span><span class="t"><b>${esc(x.title)}</b><span>${when?esc(when)+' · ':''}${esc(x.short||'')}</span></span><span class="r">${done?'<span class="ok">✓</span>':x.km?nl(x.km)+' km':x.min?x.min+' min':''}</span></button>`}
 
@@ -455,8 +516,56 @@ function spin(on){$$('#sync-top svg,#sync-acts svg').forEach(s=>s.animate(on?[{t
 
 /* ---------- importeren, voorbeeld, back-up ---------- */
 $('#file').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;
-  try{const j=JSON.parse(await f.text());if(!valid(j))throw 0;st.plan=j;st.done={};save();render();go('today');toast('Schema geïmporteerd');setTimeout(()=>trot(),400)}
+  try{const j=JSON.parse(await f.text());if(!valid(j))throw 0;const previous=st;st={...st,plan:j,done:{}};try{render()}catch(error){st=previous;render();throw error}save();go('today');revealDashboard()}
   catch(err){toast('Dit is geen geldig schemabestand')}};
+function revealDashboard(){
+  const overlay=$('#paint'),canvas=overlay.querySelector('canvas'),brush=overlay.querySelector('.paint-brush');
+  const focus=()=>$('#dashboard-title').focus({preventScroll:true});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){focus();return}
+  const ctx=canvas.getContext('2d');
+  if(!ctx){focus();return}
+  const width=innerWidth,height=innerHeight,dpr=Math.min(devicePixelRatio||1,2);
+  canvas.width=width*dpr;canvas.height=height*dpr;ctx.scale(dpr,dpr);
+  ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--bg');ctx.fillRect(0,0,width,height);
+  overlay.classList.add('active');document.body.classList.add('painting');
+  const rows=width>height?3:5,band=height/rows,bristleWidth=band*1.55;
+  // Each sweep removes the paper cover with slightly uneven bristle tips.
+  const points=[];
+  for(let row=0;row<rows;row++){
+    const reverse=row%2===1;
+    for(let i=0;i<=80;i++){
+      const u=i/80;
+      points.push({x:(reverse?1-u:u)*(width+180)-90,y:band*(row+.5)+Math.sin(u*Math.PI)*band*.13});
+    }
+  }
+  ctx.globalCompositeOperation='destination-out';ctx.lineCap='round';
+  let start=null,last=points[0],lastIndex=0;
+  function finish(){overlay.classList.remove('active');document.body.classList.remove('painting');removeEventListener('resize',finish);focus()}
+  addEventListener('resize',finish,{once:true});
+  function frame(time){
+    if(!overlay.classList.contains('active'))return;
+    if(start===null)start=time;
+    const progress=Math.min(1,(time-start)/3200),index=Math.min(points.length-1,Math.floor(progress*(points.length-1)));
+    for(let i=lastIndex;i<=index;i++){
+      const point=points[i];
+      ctx.strokeStyle='#000';ctx.lineWidth=bristleWidth*.86;
+      ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(point.x,point.y);ctx.stroke();
+      for(let tip=0;tip<18;tip++){
+        const offset=(tip/17-.5)*bristleWidth;
+        ctx.lineWidth=bristleWidth/24;
+        ctx.beginPath();ctx.moveTo(last.x-8*Math.sin(tip*4),last.y+offset);ctx.lineTo(point.x-8*Math.sin(tip*4),point.y+offset);ctx.stroke();
+      }
+      last=point;
+    }
+    lastIndex=index;
+    const row=Math.min(rows-1,Math.floor(index/81));
+    brush.style.transform=`translate(${last.x-50}px,${last.y-162}px) rotate(${row%2?-24:24}deg)`;
+    brush.style.opacity=String(Math.min(1,progress*20,(1-progress)*25));
+    if(progress<1)requestAnimationFrame(frame);
+    else{overlay.animate([{opacity:1},{opacity:0}],{duration:240,fill:'forwards'}).finished.then(()=>{finish();overlay.getAnimations().forEach(a=>a.cancel())})}
+  }
+  requestAnimationFrame(frame);
+}
 function exportData(){const d={draf:1,made:new Date().toISOString(),plan:st.plan,done:st.done,acts:st.acts};
   const name=`draf-backup-${dkey(new Date())}.json`,file=new File([JSON.stringify(d)],name,{type:'application/json'});
   if(navigator.canShare&&navigator.canShare({files:[file]})&&/iPhone|iPad|Android/.test(navigator.userAgent)){navigator.share({files:[file]}).catch(()=>{});return}
@@ -538,14 +647,14 @@ document.addEventListener('click',e=>{const t=e.target;
   const act=t.closest('[data-act]');if(act){const a=act.dataset.act;
     if(a==='import')$('#file').click();
     if(a==='demo'){st.plan=demoPlan();st.done={};save();render();go('today');toast('Voorbeeldschema geladen');setTimeout(trot,400)}
-    if(a==='me')go('me')}});
+    if(a==='me')go('me');if(a==='plan')go('plan')}});
 $('#sync-top').onclick=()=>sync(true);$('#sync-acts').onclick=()=>sync(true);
 // ezeltjes: vijf keer op het logo tikken, of lang op het aftellen drukken
 let bt=0,btT;$('#brand').onclick=()=>{clearTimeout(btT);btT=setTimeout(()=>bt=0,1500);if(++bt>=5){bt=0;trot()}};
 let lp;document.addEventListener('pointerdown',e=>{if(e.target.closest('#countdown'))lp=setTimeout(peek,600)});
 ['pointerup','pointercancel','pointerleave'].forEach(ev=>document.addEventListener(ev,()=>clearTimeout(lp)));
 
-function render(){renderToday();renderPlan();renderActs();renderMe()}
+function render(){document.body.classList.toggle("awaiting",!st.plan);if(!st.plan){go('today');return;}renderToday();renderPlan();renderActs();renderMe()}
 
 /* ---------- start ---------- */
 $('#brand-ic').innerHTML='<svg viewBox="0 0 24 24"><ellipse cx="8.500" cy="6" rx="1.800" ry="5" transform="rotate(-16 8.500 6)" fill="#fff"/><ellipse cx="15.500" cy="6" rx="1.800" ry="5" transform="rotate(16 15.500 6)" fill="#fff"/><circle cx="12" cy="13" r="5.500" fill="#fff"/><ellipse cx="12" cy="17.500" rx="4.200" ry="3.200" fill="#f2e9ef"/><circle cx="10" cy="12.500" r=".9" fill="#2a2630"/><circle cx="14" cy="12.500" r=".9" fill="#2a2630"/></svg>';
